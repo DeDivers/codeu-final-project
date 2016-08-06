@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="airbears2-10-142-5-42.airbears2.1918.berkeley.edu" name="com.flatironschool.javacs.WikiSearchTest" skipped="0" tests="4" time="0.152" timestamp="2016-08-05T00:16:05">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="env.ALF_SRC_TOOLS" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/tools" />
+    <property name="env.ZSH_UNAME" value="Darwin" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="env.ALF_SRC_TEMPLATES" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/templates" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/classes" />
+    <property name="env.TMPDIR" value="/var/folders/yp/8s1h6b5d4ms53b2rxr68t80m0000gn/T/" />
+    <property name="env.ALF_SYMLINK" value="/Users/kevinliao/.alf/symlink" />
+    <property name="env.PWD" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU" />
+    <property name="env.LANG" value="en_US.UTF-8" />
+    <property name="env.ALF_SRC" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git" />
+    <property name="env.LESS" value="-R" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.9.7/libexec" />
+    <property name="java.runtime.version" value="1.8.0_74-b02" />
+    <property name="env.ALF_SRC_GIT_HOOKS" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/git-hooks" />
+    <property name="env.GOPATH" value="/Users/kevinliao/go" />
+    <property name="env.Apple_PubSub_Socket_Render" value="/private/tmp/com.apple.launchd.wc1WXuMi8Q/Render" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.zPZz17wrz8/org.macosforge.xquartz:0" />
+    <property name="env.ALF_CONFIG_WIN" value="/Users/kevinliao/.alf/config/win" />
+    <property name="user.name" value="kevinliao" />
+    <property name="env.USER" value="kevinliao" />
+    <property name="env.SHELL" value="/usr/local/bin/zsh" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="env.PATH" value="/Users/kevinliao/.rbenv/versions/2.3.1/bin:/usr/local/Cellar/rbenv/1.0.0/libexec:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/Library/TeX/texbin:/Users/kevinliao/.rbenv/shims:/Users/kevinliao/.rbenv/bin:/Users/kevinliao/.cabal/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/ksreview/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/murder/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/pretty-print/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/process/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/run-once/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/logr/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/server/bin:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/osx-ksreview/bin" />
+    <property name="user.language" value="en" />
+    <property name="env.ALF_THEME" value="sindresorhus/pure" />
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib" />
+    <property name="env.PLATFORM_IS_ALL" value="1" />
+    <property name="env.ALF_PROCESS" value="/Users/kevinliao/.alf/process" />
+    <property name="ant.project.default-target" value="build" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.ALF_SRC_THEMES" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/themes" />
+    <property name="ant.project.name" value="JavaCS" />
+    <property name="env.LC_CTYPE" value="en_US.UTF-8" />
+    <property name="java.version" value="1.8.0_74" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="env.ITERM_SESSION_ID" value="w0t3p1:434A2525-9272-4E01-9F90-502598C1C4FB" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="env.SHLVL" value="3" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="env.ALF_CONFIG_PRPROMPT_ID" value="%F{magenta}[ Alf ]%f" />
+    <property name="env.ALF_CUSTOM_ALIASES" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/aliases/init.zsh" />
+    <property name="user.country" value="US" />
+    <property name="ant.file.JavaCS" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/build.xml" />
+    <property name="env.ALF_SRC_FONTS" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/fonts" />
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre" />
+    <property name="env.ZSH" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="env.LOGNAME" value="kevinliao" />
+    <property name="ant.file" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/build.xml" />
+    <property name="os.version" value="10.11.6" />
+    <property name="env.ALF_RUN_ONCE" value="/Users/kevinliao/.alf/run-once" />
+    <property name="env.ALF_GRUNT_INIT" value="/Users/kevinliao/.grunt-init" />
+    <property name="env.TERM_PROGRAM_VERSION" value="3.0.5" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="25.74-b02" />
+    <property name="env.RBENV_ROOT" value="/Users/kevinliao/.rbenv" />
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.9.7/libexec/lib" />
+    <property name="junit.output.dir" value="junit" />
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="env.ALF_CUSTOM" value="/Users/kevinliao/.alf" />
+    <property name="env.RBENV_VERSION" value="2.3.1" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+    <property name="env.LSCOLORS" value="Gxfxcxdxbxegedabagacad" />
+    <property name="env.MANPATH" value="/usr/share/man:/usr/local/share/man:/opt/X11/share/man:/Library/TeX/Distributions/.DefaultTeX/Contents/Man:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/logr/man:/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/server/man" />
+    <property name="env.ALF_RPROMPT" value="/Users/kevinliao/.alf/rprompt" />
+    <property name="user.home" value="/Users/kevinliao" />
+    <property name="target" value="1.7" />
+    <property name="env.ALF_EPOCH" value="/Users/kevinliao/.alf/epoch" />
+    <property name="env.RBENV_HOOK_PATH" value="/Users/kevinliao/.rbenv/rbenv.d:/usr/local/Cellar/rbenv/1.0.0/rbenv.d:/usr/local/etc/rbenv.d:/etc/rbenv.d:/usr/lib/rbenv/hooks" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="env.HOMEBREW_CASK_OPTS" value="--appdir=/Applications --binarydir=/usr/local/bin --caskroom=/opt/homebrew-cask/Caskroom --fontdir=~/Library/Fonts --input_methoddir=~/Library/Input\ Methods --prefpanedir=~/Library/PreferencePanes --qlplugindir=~/Library/QuickLook --screen_saverdir=~/Library/Screen\ Savers --widgetdir=~/Library/Widgets" />
+    <property name="env.TERM_PROGRAM" value="iTerm.app" />
+    <property name="env.ALF_VERSION" value="/Users/kevinliao/.alf/version" />
+    <property name="env.PAGER" value="less" />
+    <property name="java.library.path" value="/Users/kevinliao/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.ALF_CONFIG_GIT" value="/Users/kevinliao/.alf/config/git" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
+    <property name="java.class.path" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/bin:/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/lib/jedis-2.8.0.jar:/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/lib/jsoup-1.8.3.jar:/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/lib/junit-4.12.jar:/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/lib/hamcrest-core-1.3.jar:/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/lib/hamcrest-library-1.3.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.flatironschool.javacs.WikiSearchTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/junit/TEST-com.flatironschool.javacs.WikiSearchTest.xml formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter crashfile=/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/junitvmwatcher5446855694367617575.properties propsfile=/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12/junit8904721469797125515.properties" />
+    <property name="env.TERM_SESSION_ID" value="w0t3p1:434A2525-9272-4E01-9F90-502598C1C4FB" />
+    <property name="ant.file.type.JavaCS" value="file" />
+    <property name="env.ALF_CONFIG_SSH" value="/Users/kevinliao/.alf/config/ssh" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="env.RBENV_SHELL" value="zsh" />
+    <property name="env.PLATFORM_IS_MAC" value="1" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="env.ADOTDIR" value="/Users/kevinliao/.alf/antigen" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="env.HOME" value="/Users/kevinliao" />
+    <property name="debuglevel" value="source,lines,vars" />
+    <property name="java.io.tmpdir" value="/var/folders/yp/8s1h6b5d4ms53b2rxr68t80m0000gn/T/" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.ShwrHfcQap/Listeners" />
+    <property name="env.RUBYLIB" value="/usr/local/Cellar/rbenv/1.0.0/rbenv.d/exec/gem-rehash:" />
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.ext.dirs" value="/Users/kevinliao/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="user.dir" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU" />
+    <property name="env.ALF_UPDATE_DAYS" value="60" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="env.OMZ_URL" value="https://github.com/robbyrussell/oh-my-zsh.git" />
+    <property name="basedir" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU/javacs-lab12" />
+    <property name="env.ITERM_PROFILE" value="Flat Terminal fish" />
+    <property name="env.ZSH_CUSTOM" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git" />
+    <property name="env.ALF_UPDATES" value="/Users/kevinliao/.alf/updates" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.9.7/libexec/lib/ant.jar" />
+    <property name="env.ALF_CUSTOM_KEY_BINDINGS" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins/key-bindings/init.zsh" />
+    <property name="source" value="1.7" />
+    <property name="env.RBENV_DIR" value="/Volumes/KEVIN_LIAO/Programming/Java/cs-application-retrieval-lab-codeU" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.ALF_LOGR" value="/Users/kevinliao/.alf/logr" />
+    <property name="env.ALF_SRC_PLUGINS" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/plugins" />
+    <property name="env.ALF_CONFIG" value="/Users/kevinliao/.alf/config" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="env.JAVA_MAIN_CLASS_41807" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.invoked-targets" value="test" />
+    <property name="env.ALF_SRC_TEMPLATES_CONFIG" value="/Users/kevinliao/.alf/antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-psyrendust-SLASH-alf.git/templates/config" />
+    <property name="env.ALF_URL" value="https://github.com/psyrendust/alf.git" />
+    <property name="env.ALF_BACKUP" value="/Users/kevinliao/.alf/backup" />
+  </properties>
+  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testAnd" time="0.009" />
+  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testMinus" time="0.0" />
+  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testSort" time="0.001" />
+  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testOr" time="0.0" />
+  <system-out><![CDATA[results is: [Page3=5, Page4=7, Page2=4]
+Iterating through url: Page3
+Iterating through url: Page1
+Iterating through url: Page2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
