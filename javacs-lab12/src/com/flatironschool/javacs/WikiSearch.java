@@ -50,7 +50,7 @@ public class WikiSearch {
 	 * 
 	 * @param map
 	 */
-	private  void print() {
+	public void print() {
     System.out.println("PRINTING.");
 		List<Entry<String, Double>> entries = sort();
 		for (Entry<String, Double> entry: entries) {

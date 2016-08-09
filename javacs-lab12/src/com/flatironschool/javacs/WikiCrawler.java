@@ -64,7 +64,7 @@ public class WikiCrawler {
         if (testing) {
         	e = wf.readWikipedia(s);
         } else {
-        	if (index.isIndexed(s)) {
+        	while (index.isIndexed(s)) {
         		s = queue.poll();
         	}
         	e = wf.fetchWikipedia(s);
@@ -97,7 +97,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/Wes_Edwards";
+		String source = "https://en.wikipedia.org/wiki/Chiesa_di_San_Costanzo";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue
