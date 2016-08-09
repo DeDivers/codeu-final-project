@@ -5,6 +5,7 @@ public class EchoSearch {
 		if (args.length != 2) {
 			if (args.length < 2) {
 				System.out.println("Too few args");
+				System.out.println(args[0]);
 			} else {
 				System.out.println("Too many args");
 			}

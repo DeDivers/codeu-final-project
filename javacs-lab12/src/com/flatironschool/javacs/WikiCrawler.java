@@ -97,7 +97,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/Chiesa_di_San_Costanzo";
+		String source = "https://en.wikipedia.org/wiki/Ricardo_Iribarren";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue

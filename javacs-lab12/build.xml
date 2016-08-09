@@ -347,6 +347,13 @@
             <classpath refid="JavaCS.classpath"/>
         </java>
     </target>
+    <target name="EchoSearch">
+        <java classname="com.flatironschool.javacs.EchoSearch" failonerror="true" fork="yes">
+            <arg value="${arg0}"/>
+            <arg value="${arg1}"/>
+            <classpath refid="JavaCS.classpath"/>
+        </java>
+    </target>
     <target name="LinkedListExample">
         <java classname="com.flatironschool.javacs.LinkedListExample" failonerror="true" fork="yes">
             <classpath refid="JavaCS.classpath"/>
