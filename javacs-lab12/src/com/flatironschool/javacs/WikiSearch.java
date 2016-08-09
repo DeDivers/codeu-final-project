@@ -21,7 +21,7 @@ import redis.clients.jedis.Jedis;
 public class WikiSearch {
 	
 	// map from URLs that contain the term(s) to relevance score
-	private Map<String, Integer> map;
+	private Map<String, Double> map;
   private JedisIndex index;
 
 	/**
@@ -29,7 +29,7 @@ public class WikiSearch {
 	 * 
 	 * @param map
 	 */
-	public WikiSearch(Map<String, Integer> map, JedisIndex index) {
+	public WikiSearch(Map<String, Double> map, JedisIndex index) {
 		this.map = map;
     this.index = index;
 	}
@@ -40,8 +40,8 @@ public class WikiSearch {
 	 * @param url
 	 * @return
 	 */
-	public Integer getRelevance(String url) {
-		Integer tf = map.get(url);
+	public Double getRelevance(String url) {
+		Double tf = map.get(url);
     tf = tf == null ? 0: tf;
     // documentFrequency is the number of documents that the key is found in. 
     Integer documentFrequency = map.keySet().size();
@@ -58,8 +58,8 @@ public class WikiSearch {
 	 */
 	private  void print() {
     System.out.println("PRINTING.");
-		List<Entry<String, Integer>> entries = sort();
-		for (Entry<String, Integer> entry: entries) {
+		List<Entry<String, Double>> entries = sort();
+		for (Entry<String, Double> entry: entries) {
 			System.out.println(entry);
 		}
 	}
@@ -71,7 +71,7 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch or(WikiSearch that) {
-      Map<String, Integer> result = new HashMap();
+      Map<String, Double> result = new HashMap();
       for(String url: this.map.keySet()) {
           System.out.println("Iterating through url: " + url);
           result.put(url, this.map.get(url));
@@ -92,7 +92,7 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch and(WikiSearch that) {
-      Map<String, Integer> result = new HashMap();
+      Map<String, Double> result = new HashMap();
       for(String url: this.map.keySet()) {
           if(that.map.containsKey(url)) {
               result.put(url, this.map.get(url) + that.map.get(url));
@@ -109,7 +109,7 @@ public class WikiSearch {
 	 */
 	public WikiSearch minus(WikiSearch that) {
         // FILL THIS IN!
-      Map<String, Integer> result = new HashMap();
+      Map<String, Double> result = new HashMap();
       for(String url: this.map.keySet()) {
           if(!that.map.containsKey(url)) {
               result.put(url, this.map.get(url));
@@ -135,12 +135,12 @@ public class WikiSearch {
 	 * 
 	 * @return List of entries with URL and relevance.
 	 */
-    public List<Entry<String, Integer>> sort() {
-        List<Entry<String, Integer>> results = new LinkedList<Entry<String, Integer>>(this.map.entrySet());
+    public List<Entry<String, Double>> sort() {
+        List<Entry<String, Double>> results = new LinkedList<Entry<String, Double>>(this.map.entrySet());
         System.out.println("results is: " + results);
-        Comparator<Entry<String, Integer>> EntryComparator = new Comparator<Entry<String, Integer>>() {
+        Comparator<Entry<String, Double>> EntryComparator = new Comparator<Entry<String, Double>>() {
                 @Override
-                public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
+                public int compare(Entry<String, Double> entry1, Entry<String, Double> entry2) {
                     return entry1.getValue().compareTo(entry2.getValue());
                 }
             };
@@ -158,7 +158,7 @@ public class WikiSearch {
 	 */
 	public static WikiSearch search(String term, JedisIndex index) {
     System.out.println("Search called for term: " + term);
-		Map<String, Integer> map = index.getCounts(term);
+		Map<String, Double> map = index.getCounts(term);
 		return new WikiSearch(map, index);
 	}
 

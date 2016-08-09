@@ -87,11 +87,11 @@ public class JedisIndex {
 	 * @param term
 	 * @return Map from URL to count.
 	 */
-	public Map<String, Integer> getCounts(String term) {
-		Map<String, Integer> map = new HashMap<String, Integer>();
+	public Map<String, Double> getCounts(String term) {
+		Map<String, Double> map = new HashMap<String, Double>();
 		Set<String> urls = getURLs(term);
 		for (String url: urls) {
-			Integer count = getCount(url, term);
+			Double count = (double) getCount(url, term);
 			map.put(url, count);
 		}
 		return map;
