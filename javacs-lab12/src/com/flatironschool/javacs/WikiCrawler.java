@@ -99,7 +99,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/Ricardo_Iribarren";
+		String source = "https://en.wikipedia.org/wiki/Google";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue
@@ -113,7 +113,7 @@ public class WikiCrawler {
 			
 		} 
 		
-		Map<String, Double> map = index.getCounts("the");
+		Map<String, Double> map = index.getCounts("the", "Green");
 		for (Entry<String, Double> entry: map.entrySet()) {
 			System.out.println(entry);
 		}

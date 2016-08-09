@@ -88,7 +88,7 @@ public class JedisIndex {
 	 * @param term
 	 * @return Map from URL to TFIDF relevancy.
 	 */
-	public Map<String, Double> getCounts(String term) {
+	public Map<String, Double> getCounts(String term, String leaning) {
     System.out.println("getCounts called.");
 		Map<String, Double> map = new HashMap<String, Double>();
 		Set<String> urls = getURLs(term);
@@ -102,6 +102,8 @@ public class JedisIndex {
       // We have everything we need to calculate TF-IDF
       Double idf = Math.log(indexSize/urlCount);
       Double tf_idf = tf * idf;
+      Double leanVal = getLeanings(url).get(leaning);
+      tf_idf *= leanVal;
 			map.put(url, tf_idf);
 		}
 		return map;

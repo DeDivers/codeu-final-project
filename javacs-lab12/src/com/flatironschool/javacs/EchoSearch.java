@@ -13,6 +13,6 @@ public class EchoSearch {
 		}
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		WikiSearch.search(args[0], index).print();
+		WikiSearch.search(args[0], index, args[1]).print();
 	}
 }

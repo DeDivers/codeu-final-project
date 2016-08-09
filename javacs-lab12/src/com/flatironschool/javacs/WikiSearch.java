@@ -149,9 +149,9 @@ public class WikiSearch {
 	 * @param index
 	 * @return
 	 */
-	public static WikiSearch search(String term, JedisIndex index) {
+	public static WikiSearch search(String term, JedisIndex index, String leaning) {
     System.out.println("Search called for term: " + term);
-		Map<String, Double> map = index.getCounts(term);
+		Map<String, Double> map = index.getCounts(term, leaning);
 		return new WikiSearch(map);
 	}
 
@@ -164,13 +164,13 @@ public class WikiSearch {
 		// search for the first term
 		String term1 = "legend";
 		System.out.println("Query: " + term1);
-		WikiSearch search1 = search(term1, index);
+		WikiSearch search1 = search(term1, index, "Green");
 		search1.print();
 		
 		// search for the second term
 		String term2 = "zelda";
 		System.out.println("Query: " + term2);
-		WikiSearch search2 = search(term2, index);
+		WikiSearch search2 = search(term2, index, "Green");
 		search2.print();
 		
 		// compute the intersection of the searches
