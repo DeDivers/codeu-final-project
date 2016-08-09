@@ -59,13 +59,13 @@ public class WikiCrawler {
 			return null;
 		}
 		String s = queue.poll();
-		System.out.println(s);
+		// System.out.println(s);
 		Elements e;
         if (testing) {
         	e = wf.readWikipedia(s);
         } else {
         	if (index.isIndexed(s)) {
-        		return null;
+        		s = queue.poll();
         	}
         	e = wf.fetchWikipedia(s);
         }
@@ -97,7 +97,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/Peter%27s_Two_Dads";
+		String source = "https://en.wikipedia.org/wiki/Badi%C3%A9";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue
