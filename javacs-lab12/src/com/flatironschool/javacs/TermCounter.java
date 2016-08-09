@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import io.indico.Indico;
+import io.indico.api.results.IndicoResult;
+import io.indico.api.results.BatchIndicoResult;
+import io.indico.api.text.PoliticalClass;
+import io.indico.api.utils.IndicoException;
+
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
@@ -54,6 +60,16 @@ public class TermCounter {
 			text += processTree(node);
 		}
     System.out.println("The text on this page is: " + text);
+    Indico indico = new Indico("ed10971412405df6de77333f9fab3033");
+    try {
+      IndicoResult single = indico.sentiment.predict(text);
+      Map<PoliticalClass, Double> result = single.getPolitical();
+      System.out.println("The political leanings are: " + result);
+    } catch (IndicoException exception) {
+      System.out.println("Failed.");
+    } catch (IOException exception) {
+      System.out.println("Failed.");
+    }
 	}
 	
 	/**
@@ -81,7 +97,6 @@ public class TermCounter {
 	public String processText(String text) {
 		// replace punctuation with spaces, convert to lower case, and split on whitespace
 		String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
-
 		for (int i=0; i<array.length; i++) {
 			String term = array[i];
 			incrementTermCount(term);
