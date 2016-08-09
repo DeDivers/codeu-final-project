@@ -134,10 +134,10 @@ public class WikiSearch {
         System.out.println("results is: " + results);
         Comparator<Entry<String, Double>> EntryComparator = new Comparator<Entry<String, Double>>() {
                 @Override
-                public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
+                public int compare(Entry<String, Double> entry1, Entry<String, Double> entry2) {
                     return entry2.getValue().compareTo(entry1.getValue());
             };
-        }
+          };
         Collections.sort(results, EntryComparator);
         return results;
 
