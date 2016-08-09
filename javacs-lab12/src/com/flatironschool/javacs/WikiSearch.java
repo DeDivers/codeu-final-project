@@ -163,13 +163,13 @@ public class WikiSearch {
 		JedisIndex index = new JedisIndex(jedis); 
 		
 		// search for the first term
-		String term1 = "europe";
+		String term1 = "legend";
 		System.out.println("Query: " + term1);
 		WikiSearch search1 = search(term1, index);
 		search1.print();
 		
 		// search for the second term
-		String term2 = "asia";
+		String term2 = "zelda";
 		System.out.println("Query: " + term2);
 		WikiSearch search2 = search(term2, index);
 		search2.print();
@@ -180,9 +180,9 @@ public class WikiSearch {
 		intersection.print();
 
     // search for philosophy.
-		String term3 = "philosophy";
-		System.out.println("Query: " + term3);
-		WikiSearch search3 = search(term3, index);
-		search3.print();
+		// String term3 = "family";
+		// System.out.println("Query: " + term3);
+		// WikiSearch search3 = search(term3, index);
+		// search3.print();
 	}
 }
