@@ -43,11 +43,6 @@ public class WikiSearch {
 	public Double getRelevance(String url) {
 		Double tf = map.get(url);
     tf = tf == null ? 0: tf;
-    // documentFrequency is the number of documents that the key is found in. 
-    Integer documentFrequency = map.keySet().size();
-    Integer totalDocuments = index.urlSetKeys().size();
-    System.out.println("Document Frequency is: " + documentFrequency);
-    System.out.println("Total Documents is: " + totalDocuments);
 		return tf;
 	}
 
@@ -184,5 +179,11 @@ public class WikiSearch {
 		System.out.println("Query: " + term1 + " AND " + term2);
 		WikiSearch intersection = search1.and(search2);
 		intersection.print();
+
+    // search for philosophy.
+		String term3 = "philosophy";
+		System.out.println("Query: " + term3);
+		WikiSearch search3 = search(term3, index);
+		search3.print();
 	}
 }
