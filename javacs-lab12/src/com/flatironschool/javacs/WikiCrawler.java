@@ -97,7 +97,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/1959_Grand_Prix_motorcycle_racing_season";
+		String source = "https://en.wikipedia.org/wiki/Peter%27s_Two_Dads";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue
@@ -111,8 +111,8 @@ public class WikiCrawler {
 			
 		} 
 		
-		Map<String, Integer> map = index.getCounts("the");
-		for (Entry<String, Integer> entry: map.entrySet()) {
+		Map<String, Double> map = index.getCounts("the");
+		for (Entry<String, Double> entry: map.entrySet()) {
 			System.out.println(entry);
 		}
 	}
