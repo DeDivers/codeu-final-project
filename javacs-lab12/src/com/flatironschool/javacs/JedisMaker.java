@@ -23,7 +23,7 @@ public class JedisMaker {
 	 * @throws IOException
 	 */
 	public static Jedis make() throws IOException {
-
+    System.out.println("JedisMaker called.");
 
 		// assemble the file name
 		String slash = File.separator;
@@ -51,6 +51,7 @@ public class JedisMaker {
 		URI uri;
 		try {
 			uri = new URI(sb.toString());
+			System.out.println("Reading file: " + filename);
 		} catch (URISyntaxException e) {
 			System.out.println("Reading file: " + filename);
 			System.out.println("It looks like this file does not contain a valid URI.");

@@ -1,1 +1,4 @@
-javacs-lab12/src/resources/redis_url.txt
+javacs-lab12/bin/resources/redis_url.txt
+javacs-lab12/bin/resources/indico_api.txt
+*.class
+*.swp
