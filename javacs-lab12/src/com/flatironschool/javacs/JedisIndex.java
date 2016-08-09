@@ -39,7 +39,7 @@ public class JedisIndex {
 	private String urlSetKey(String term) {
 		return "URLSet:" + term;
 	}
-	
+
 	/**
 	 * Returns the Redis key for a URL's TermCounter.
 	 * 

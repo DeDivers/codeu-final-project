@@ -1,5 +1,7 @@
 package com.flatironschool.javacs;
 
+import io.indico.Indico;
+
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,14 +22,16 @@ public class WikiSearch {
 	
 	// map from URLs that contain the term(s) to relevance score
 	private Map<String, Integer> map;
+  private JedisIndex index;
 
 	/**
 	 * Constructor.
 	 * 
 	 * @param map
 	 */
-	public WikiSearch(Map<String, Integer> map) {
+	public WikiSearch(Map<String, Integer> map, JedisIndex index) {
 		this.map = map;
+    this.index = index;
 	}
 	
 	/**
@@ -37,16 +41,23 @@ public class WikiSearch {
 	 * @return
 	 */
 	public Integer getRelevance(String url) {
-		Integer relevance = map.get(url);
-		return relevance==null ? 0: relevance;
+		Integer tf = map.get(url);
+    tf = tf == null ? 0: tf;
+    // documentFrequency is the number of documents that the key is found in. 
+    Integer documentFrequency = map.keySet().size();
+    Integer totalDocuments = index.urlSetKeys().size();
+    System.out.println("Document Frequency is: " + documentFrequency);
+    System.out.println("Total Documents is: " + totalDocuments);
+		return tf;
 	}
-	
+
 	/**
 	 * Prints the contents in order of term frequency.
 	 * 
 	 * @param map
 	 */
 	private  void print() {
+    System.out.println("PRINTING.");
 		List<Entry<String, Integer>> entries = sort();
 		for (Entry<String, Integer> entry: entries) {
 			System.out.println(entry);
@@ -71,7 +82,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url) + that.map.get(url));
           }
       }
-      return new WikiSearch(result);
+      return new WikiSearch(result, this.index);
 	}
 	
 	/**
@@ -87,7 +98,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url) + that.map.get(url));
           }
       }
-      return new WikiSearch(result);
+      return new WikiSearch(result, this.index);
 	}
 	
 	/**
@@ -104,7 +115,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url));
           }
       }
-      return new WikiSearch(result);
+      return new WikiSearch(result, this.index);
 	}
 	
 	/**
@@ -146,8 +157,9 @@ public class WikiSearch {
 	 * @return
 	 */
 	public static WikiSearch search(String term, JedisIndex index) {
+    System.out.println("Search called for term: " + term);
 		Map<String, Integer> map = index.getCounts(term);
-		return new WikiSearch(map);
+		return new WikiSearch(map, index);
 	}
 
 	public static void main(String[] args) throws IOException {
