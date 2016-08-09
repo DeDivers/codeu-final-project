@@ -130,7 +130,7 @@ public class WikiSearch {
         Comparator<Entry<String, Integer>> EntryComparator = new Comparator<Entry<String, Integer>>() {
                 @Override
                 public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
-                    return entry1.getValue().compareTo(entry2.getValue());
+                    return entry2.getValue().compareTo(entry1.getValue());
                 }
             };
         Collections.sort(results, EntryComparator);
@@ -157,13 +157,13 @@ public class WikiSearch {
 		JedisIndex index = new JedisIndex(jedis); 
 		
 		// search for the first term
-		String term1 = "java";
+		String term1 = "europe";
 		System.out.println("Query: " + term1);
 		WikiSearch search1 = search(term1, index);
 		search1.print();
 		
 		// search for the second term
-		String term2 = "programming";
+		String term2 = "asia";
 		System.out.println("Query: " + term2);
 		WikiSearch search2 = search(term2, index);
 		search2.print();

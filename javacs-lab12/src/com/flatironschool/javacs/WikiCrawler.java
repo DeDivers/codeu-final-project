@@ -59,6 +59,7 @@ public class WikiCrawler {
 			return null;
 		}
 		String s = queue.poll();
+		System.out.println(s);
 		Elements e;
         if (testing) {
         	e = wf.readWikipedia(s);
@@ -96,7 +97,7 @@ public class WikiCrawler {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis); 
-		String source = "https://en.wikipedia.org/wiki/Java_(programming_language)";
+		String source = "https://en.wikipedia.org/wiki/1959_Grand_Prix_motorcycle_racing_season";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		
 		// for testing purposes, load up the queue
@@ -104,9 +105,10 @@ public class WikiCrawler {
 		wc.queueInternalLinks(paragraphs);
 
 		// loop until we index a new page
-		String res = wc.crawl(false);
-		while (res != null) {
-			res = wc.crawl(false);
+		String s = "";
+		while (s != null) {
+			s = wc.crawl(false);
+			
 		} 
 		
 		Map<String, Integer> map = index.getCounts("the");
