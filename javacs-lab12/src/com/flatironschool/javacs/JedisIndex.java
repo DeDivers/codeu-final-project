@@ -30,10 +30,10 @@ public class JedisIndex {
 	public JedisIndex(Jedis jedis) {
 		this.jedis = jedis;
 	}
-	
+
 	/**
 	 * Returns the Redis key for a given search term.
-	 * 
+	 *
 	 * @return Redis key.
 	 */
 	private String urlSetKey(String term) {
@@ -51,7 +51,7 @@ public class JedisIndex {
 
 	/**
 	 * Checks whether we have a TermCounter for a given URL.
-	 * 
+	 *
 	 * @param url
 	 * @return
 	 */
@@ -59,10 +59,10 @@ public class JedisIndex {
 		String redisKey = termCounterKey(url);
 		return jedis.exists(redisKey);
 	}
-	
+
 	/**
 	 * Adds a URL to the set associated with `term`.
-	 * 
+	 *
 	 * @param term
 	 * @param tc
 	 */
@@ -88,6 +88,7 @@ public class JedisIndex {
 	 * @return Map from URL to TFIDF relevancy.
 	 */
 	public Map<String, Double> getCounts(String term) {
+    System.out.println("getCounts called.");
 		Map<String, Double> map = new HashMap<String, Double>();
 		Set<String> urls = getURLs(term);
     // - Number of URLs term appears in
@@ -95,6 +96,7 @@ public class JedisIndex {
     // - total number of URLs indexed.
     Integer indexSize = this.urlSetKeys().size();
 		for (String url: urls) {
+      System.out.println("url: " + url);
 			Double tf = (double) getCount(url, term);
       // We have everything we need to calculate TF-IDF
       Double idf = Math.log(indexSize/urlCount);

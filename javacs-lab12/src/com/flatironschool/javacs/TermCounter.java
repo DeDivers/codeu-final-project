@@ -49,9 +49,11 @@ public class TermCounter {
 	 * @param paragraphs
 	 */
 	public void processElements(Elements paragraphs) {
+    String text = "";
 		for (Node node: paragraphs) {
-			processTree(node);
+			text += processTree(node);
 		}
+    System.out.println("The text on this page is: " + text);
 	}
 	
 	/**
@@ -59,14 +61,16 @@ public class TermCounter {
 	 * 
 	 * @param root
 	 */
-	public void processTree(Node root) {
+	public String processTree(Node root) {
 		// NOTE: we could use select to find the TextNodes, but since
 		// we already have a tree iterator, let's use it.
+    String text = "";
 		for (Node node: new WikiNodeIterable(root)) {
 			if (node instanceof TextNode) {
-				processText(((TextNode) node).text());
+				text += processText(((TextNode) node).text());
 			}
 		}
+    return text;
 	}
 
 	/**
@@ -74,15 +78,15 @@ public class TermCounter {
 	 * 
 	 * @param text  The text to process.
 	 */
-	public void processText(String text) {
+	public String processText(String text) {
 		// replace punctuation with spaces, convert to lower case, and split on whitespace
-    System.out.println("Processing text: " + text);
 		String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
-		
+
 		for (int i=0; i<array.length; i++) {
 			String term = array[i];
 			incrementTermCount(term);
 		}
+    return text;
 	}
 
 	/**

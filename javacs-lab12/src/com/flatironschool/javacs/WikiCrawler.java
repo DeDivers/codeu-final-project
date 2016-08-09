@@ -1,5 +1,7 @@
 package com.flatironschool.javacs;
 
+import io.indico.Indico;
+
 import java.io.IOException;
 import java.io.Console;
 import java.util.LinkedList;
