@@ -29,9 +29,8 @@ public class WikiSearch {
 	 * 
 	 * @param map
 	 */
-	public WikiSearch(Map<String, Double> map, JedisIndex index) {
+	public WikiSearch(Map<String, Double> map) {
 		this.map = map;
-    this.index = index;
 	}
 	
 	/**
@@ -77,7 +76,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url) + that.map.get(url));
           }
       }
-      return new WikiSearch(result, this.index);
+      return new WikiSearch(result);
 	}
 	
 	/**
@@ -93,7 +92,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url) + that.map.get(url));
           }
       }
-      return new WikiSearch(result, this.index);
+      return new WikiSearch(result);
 	}
 	
 	/**
@@ -110,7 +109,7 @@ public class WikiSearch {
               result.put(url, this.map.get(url));
           }
       }
-      return new WikiSearch(result, this.index);
+      return new WikiSearch(result);
 	}
 	
 	/**
@@ -154,7 +153,7 @@ public class WikiSearch {
 	public static WikiSearch search(String term, JedisIndex index) {
     System.out.println("Search called for term: " + term);
 		Map<String, Double> map = index.getCounts(term);
-		return new WikiSearch(map, index);
+		return new WikiSearch(map);
 	}
 
 	public static void main(String[] args) throws IOException {
