@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.text.Normalizer;
 
 import io.indico.Indico;
 import io.indico.api.results.IndicoResult;
 import io.indico.api.results.BatchIndicoResult;
-import io.indico.api.text.PoliticalClass;
 import io.indico.api.utils.IndicoException;
+import io.indico.api.text.PoliticalClass;
 
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
@@ -54,25 +55,31 @@ public class TermCounter {
 	 * 
 	 * @param paragraphs
 	 */
-	public void processElements(Elements paragraphs) {
+	public Map<PoliticalClass, Double> processElements(Elements paragraphs) {
     String text = "";
 		for (Node node: paragraphs) {
 			text += processTree(node);
 		}
-    System.out.println("The text on this page is: " + text);
     Indico indico = new Indico("ed10971412405df6de77333f9fab3033");
     try {
-      IndicoResult single = indico.sentiment.predict(text);
+      String hi = "";
+      String normalizedText = Normalizer
+        .normalize(text, Normalizer.Form.NFD)
+        .replaceAll("[^\\p{ASCII}]", "");
+      IndicoResult single = indico.political.predict(normalizedText);
       Map<PoliticalClass, Double> result = single.getPolitical();
       System.out.println("The political leanings are: " + result);
+      return result;
     } catch (IndicoException exception) {
       System.out.println("Failed.");
     } catch (IOException exception) {
       System.out.println("Failed.");
     }
+
+    return new HashMap<PoliticalClass, Double>();
 	}
-	
-	/**
+
+  /**
 	 * Finds TextNodes in a DOM tree and counts their words.
 	 * 
 	 * @param root

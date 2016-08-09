@@ -14,6 +14,7 @@ import org.jsoup.select.Elements;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
+import io.indico.api.text.PoliticalClass;
 /**
  * Represents a Redis-backed web search index.
  * 
@@ -150,6 +151,17 @@ public class JedisIndex {
 		return new Integer(count);
 	}
 
+  public Map<String, Double> getLeanings(String url) {
+    Map<String, String> strLeanings = jedis.hgetAll(makeLeaningsUrl(url));
+    Map<String, Double> leanings = new HashMap<String, Double>();
+    for (String belief: strLeanings.keySet()) {
+      String leaning = strLeanings.get(belief);
+      leanings.put(belief, Double.parseDouble(leaning));
+    }
+    System.out.println("Found leanings: " + leanings);
+    return leanings;
+  }
+
 	/**
 	 * Add a page to the index.
 	 * 
@@ -161,11 +173,35 @@ public class JedisIndex {
 		
 		// make a TermCounter and count the terms in the paragraphs
 		TermCounter tc = new TermCounter(url);
-		tc.processElements(paragraphs);
-		
-		// push the contents of the TermCounter to Redis
+		Map<PoliticalClass, Double> leanings = tc.processElements(paragraphs);
+
+    pushLeanings(url, leanings);
 		pushTermCounterToRedis(tc);
 	}
+
+  public String makeLeaningsUrl(String url) {
+    return "leanings:" + url;
+  }
+
+  public List<Object> pushLeanings(String url, Map<PoliticalClass, Double> leanings) {
+    Double libertarian = leanings.get(PoliticalClass.Libertarian);
+    Double green = leanings.get(PoliticalClass.Green);
+    Double liberal = leanings.get(PoliticalClass.Liberal);
+    Double conservative = leanings.get(PoliticalClass.Conservative);
+
+    Transaction t = jedis.multi();
+    String key = makeLeaningsUrl(url);
+    t.hset(key, "Libertarian", String.valueOf(libertarian));
+    t.hset(key, "Green", String.valueOf(green));
+    t.hset(key, "Liberal", String.valueOf(liberal));
+    t.hset(key, "Conservative", String.valueOf(conservative));
+    System.out.println("Conservative is: " + conservative);
+    List<Object> res = t.exec();
+    System.out.println("Pushed to redis: " + res);
+    System.out.println("The results of getLeanings is: " + getLeanings(url));
+    return res;
+  }
+
 
 	/**
 	 * Pushes the contents of the TermCounter to Redis.
