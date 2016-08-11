@@ -97,7 +97,7 @@ public class JedisIndex {
     // - total number of URLs indexed.
     Integer indexSize = this.urlSetKeys().size();
 		for (String url: urls) {
-      System.out.println("url: " + url);
+      // System.out.println("url: " + url);
 			Double tf = (double) getCount(url, term);
       // We have everything we need to calculate TF-IDF
       Double idf = Math.log(indexSize/urlCount);
@@ -160,7 +160,7 @@ public class JedisIndex {
       String leaning = strLeanings.get(belief);
       leanings.put(belief, Double.parseDouble(leaning));
     }
-    System.out.println("Found leanings: " + leanings);
+    // System.out.println("Found leanings: " + leanings);
     return leanings;
   }
 
@@ -197,10 +197,10 @@ public class JedisIndex {
     t.hset(key, "Green", String.valueOf(green));
     t.hset(key, "Liberal", String.valueOf(liberal));
     t.hset(key, "Conservative", String.valueOf(conservative));
-    System.out.println("Conservative is: " + conservative);
+    // System.out.println("Conservative is: " + conservative);
     List<Object> res = t.exec();
-    System.out.println("Pushed to redis: " + res);
-    System.out.println("The results of getLeanings is: " + getLeanings(url));
+    // System.out.println("Pushed to redis: " + res);
+    // System.out.println("The results of getLeanings is: " + getLeanings(url));
     return res;
   }
 

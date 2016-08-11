@@ -130,7 +130,7 @@ public class WikiSearch {
 	 */
     public List<Entry<String, Double>> sort() {
         List<Entry<String, Double>> results = new LinkedList<Entry<String, Double>>(this.map.entrySet());
-        System.out.println("results is: " + results);
+        // System.out.println("results is: " + results);
         Comparator<Entry<String, Double>> EntryComparator = new Comparator<Entry<String, Double>>() {
                 @Override
                 public int compare(Entry<String, Double> entry1, Entry<String, Double> entry2) {
